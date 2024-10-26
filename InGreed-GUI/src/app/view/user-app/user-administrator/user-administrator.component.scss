@@ -1,0 +1,45 @@
+@import "../../../../styles/variables.scss";
+
+input[type="date"]::-webkit-datetime-edit-hour-field,
+input[type="date"]::-webkit-datetime-edit-minute-field {
+    visibility: hidden;
+    position: absolute;
+}
+
+input[type="date"] {
+    width: 200px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  
+input[type="date"]:hover {
+border-color: #aaa;
+}
+  
+input[type="date"]:focus {
+border-color: #4d90fe;
+box-shadow: 0 0 5px rgba(77, 144, 254, 0.5);
+background-color: #f5f5f5;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.user__header {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: $big-font;
+}
+
+.margin {
+  margin: 5px;
+}
+
+  

@@ -1,0 +1,33 @@
+@import '../../../styles/variables.scss';
+
+.ingreedio-main-app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 100px;
+  min-height: calc(100vh - $navbar-height);
+  margin: auto;
+
+  .main-headers {
+    width: 50%;
+    .ingreedio-header {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: $very-very-big-font;
+      text-align: center;
+
+      @media (max-width: $extra-extra-large) {
+        font-size: $very-very-big-font;
+      }
+    }
+
+    .first-header {
+      color: $ingreedio-greenish-gray;
+    }
+
+    .second-header {
+      color: $ingreedio-primary;
+    }
+  }
+}

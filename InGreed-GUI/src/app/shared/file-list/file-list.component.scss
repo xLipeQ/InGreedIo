@@ -1,0 +1,38 @@
+/* list.component.css */
+@import '../../../styles/variables.scss';
+ 
+.list {
+  padding: 5px;
+}
+  .list-item {
+    border-radius: 15px;
+    padding-left: 10px;
+    background-color: $ingreedio-primary;
+    color: $ingreedio-secondary;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    width: fit-content;
+    font-size: $small-font;
+  }
+  
+  .list-item span {
+    flex-grow: 1; /* Allow the span to grow and take up available space */
+    overflow: hidden; /* Hide overflowing text */
+    white-space: nowrap; /* Prevent text from wrapping */
+    text-overflow: ellipsis; /* Display ellipsis (...) for overflowed text */
+  }
+
+  .delete-btn {
+    background-color: transparent;
+    color: $ingreedio-white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+
+  .input {
+    width: 100%;
+}

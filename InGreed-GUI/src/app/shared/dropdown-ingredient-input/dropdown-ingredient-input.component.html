@@ -1,0 +1,16 @@
+<ingreedio-dropdown-input
+  [keyUpCallback]="filterIngredients.bind(this)"
+  [focusCallback]="onIngredientFocus.bind(this)"
+  [unfocusCallback]="onIngredientFocusLost.bind(this)"
+  [deleteElementCallback]="deleteIngredient.bind(this)"
+  [showDropdown]="showIngredients"
+  [elements]="getChosenIngredients()"
+  [filteredElements]="filteredIngredients"
+  [chooseElement]="chooseIngredient.bind(this)"
+  [showVertical]="showVertical"
+  [header]="ingredientHeader"
+  [myControlName]="'ingredient'"
+  [id]="'IngredientId'"
+  [showPickedIngredients]="true"
+  [searchProductForm]="searchProductForm"
+  [changeColorToPrimary]="changeColorToPrimary"></ingreedio-dropdown-input>

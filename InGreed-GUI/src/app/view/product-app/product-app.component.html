@@ -1,0 +1,60 @@
+<ingreedio-main>
+  <div class="product-details">
+    <div class="product-details-info">
+      <img class="product-details-image" [src]="product?.imageData?.localURL" />
+      <div class="product-details-description">
+        <h1 class="description-title">{{ product?.name }}</h1>
+        <!-- <a class="description-brand-link" href="www.google.com">Brand</a> -->
+        <p class="description-description">{{ product?.description }}</p>
+      </div>
+    </div>
+    <div class="product-details-ingredients">
+      <h1 class="title">Ingredients:</h1>
+      <div class="ingredients-list">
+        <div class="ingredient" *ngFor="let ingredient of ingredientList">
+          <p>{{ ingredient.name }}</p>
+          <button (click)="changePreference(ingredient.id)">
+            <img
+              [src]="
+                preferenceImage.get(
+                  ingredientPreference.get(ingredient.id) ?? 0
+                )
+              " />
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="product-details-reviews">
+      <div class="reviews-title">
+        <h1 class="title">Reviews:</h1>
+        <button
+          class="add-opinion-button"
+          [ngClass]="{ 'hide-display': !isTokenSet }"
+          (click)="openAddReviewModal()">
+          <img src="../../../assets/plus.png" />
+        </button>
+      </div>
+      <div class="review-list">
+        <div class="review" *ngFor="let op of opinionList">
+          <button
+            (click)="deleteOpinion()"
+            [ngStyle]="{ display: isLoggedInClient(op) ? 'block' : 'none' }"
+            class="trash-bin-button">
+            <img src="../../../assets/bin.png" />
+          </button>
+          <button (click)="openReportModal(op)" [ngStyle]="{'display': (isLoggedInClient() && !isLoggedInClient(op))  ? 'block' : 'none'}" class="trash-bin-button">
+            <img src="../../../assets/report.png"/>
+          </button>
+          <div class="review-header">
+            <p>{{ op.username }}</p>
+            <!-- <div class="review-rating" *ngFor="let i of numSequence(r.rating)">
+                            <img src="../../../assets/star.png"/>
+                        </div> -->
+            <ingreedio-stars [rating]="op.rating" />
+          </div>
+          <p class="review-content">{{ op.content }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ingreedio-main>

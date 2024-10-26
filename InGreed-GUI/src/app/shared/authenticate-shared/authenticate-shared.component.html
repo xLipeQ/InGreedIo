@@ -1,0 +1,102 @@
+<div class="ingreedio-login">
+  <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <h1>{{ header }}</h1>
+    <div *ngIf="hasErrorOccured$ | async as hasErrorOccured">
+      <div class="login-form-authentication-error">
+        <p>
+          Login failed. Please check your username and password and try again.
+        </p>
+      </div>
+    </div>
+    <ng-container *ngIf="!isLogin">
+      <label for="email">Username</label>
+      <input
+        class="ingreedio-input login-input"
+        formControlName="username"
+        required
+        [placeholder]="
+          submittedError && loginForm.controls['username'].invalid
+            ? 'Username is required'
+            : 'username'
+        "
+        [ngClass]="{
+          'is-invalid': submittedError && loginForm.controls['username'].invalid
+        }" />
+    </ng-container>
+    <label for="email">Email</label>
+    <input
+      class="ingreedio-input login-input"
+      type="email"
+      formControlName="email"
+      required
+      [placeholder]="
+        submittedError && loginForm.controls['email'].invalid
+          ? 'Email is required (ex. abc@gmail.com)'
+          : 'Email'
+      "
+      [ngClass]="{
+        'is-invalid': submittedError && loginForm.controls['email'].invalid
+      }" />
+
+    <label for="password">Password</label>
+    <input
+      class="ingreedio-input login-input"
+      type="password"
+      formControlName="password"
+      required
+      [placeholder]="
+        submittedError && loginForm.controls['password'].invalid
+          ? 'Password is required'
+          : 'password'
+      "
+      [ngClass]="{
+        'is-invalid': submittedError && loginForm.controls['password'].invalid
+      }" />
+
+    <ng-container *ngIf="!isLogin">
+      <label for="secondPassword">Repeat password</label>
+      <input
+        class="ingreedio-input login-input"
+        type="password"
+        formControlName="secondPassword"
+        required
+        [placeholder]="
+          submittedError && loginForm.controls['secondPassword'].invalid
+            ? 'Passwords must be equal'
+            : 'password'
+        "
+        [ngClass]="{
+          'is-invalid':
+            submittedError && loginForm.controls['secondPassword'].invalid
+        }" />
+
+      <label>Pick role</label>
+      <div class="role-buttons">
+        <button
+          class="secondary-button"
+          type="button"
+          (click)="pickRole(RoleEnum.Client)"
+          [ngClass]="{ 'picked-role': selectedRole === RoleEnum.Client }">
+          Client
+        </button>
+        <button
+          class="secondary-button"
+          type="button"
+          (click)="pickRole(RoleEnum.Producent)"
+          [ngClass]="{ 'picked-role': selectedRole === RoleEnum.Producent }">
+          Producent
+        </button>
+      </div>
+    </ng-container>
+
+    <div class="login-submit-container">
+      <h2 *ngIf="isLogin">Forgot Password?</h2>
+      <button class="primary-button" type="submit">{{ header }}</button>
+    </div>
+  </form>
+
+  <div *ngIf="isLogin" class="signup-option-container">
+    <p>Or sign up using</p>
+    <h3 (click)="showRegisterPage()">Sign up</h3>
+  </div>
+</div>

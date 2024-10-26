@@ -1,0 +1,31 @@
+<div
+  [ngClass]="{ 'input-vertical': showVertical, 'move-up': moveUp }"
+  [formGroup]="searchProductForm">
+  <div>
+    <input
+      type="text"
+      [name]="myControlName"
+      [formControlName]="myControlName"
+      (keyup)="keyUpCallback()"
+      class="ingreedio-input input-ingredients"
+      [ngClass]="{ 'primary-color': changeColorToPrimary }"
+      [id]="id"
+      (focus)="focusCallback()"
+      (focusout)="unfocusCallback()" />
+  </div>
+  <p>{{ header }}</p>
+  <div class="picked-ingredients" *ngIf="showPickedIngredients">
+    <ingreedio-ingredient-list-component
+      [items]="elements"
+      [showVertical]="showVertical"></ingreedio-ingredient-list-component>
+  </div>
+  <div class="show-ingredients dropdown-window" *ngIf="showDropdown">
+    <ul>
+      <li
+        *ngFor="let element of filteredElements"
+        (click)="chooseElement(element)">
+        {{ element.name }}
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<ingreedio-main>
+  <ingreedio-user-panel></ingreedio-user-panel>
+  <div class="edit-preferences-main">
+    <div class="add-preference-main">
+      <ingreedio-dropdown-ingredient-input
+        [getIngredientValue]="getIngredientValue.bind(this)"
+        [showVertical]="false"
+        [addIngredient]="addPreference.bind(this)"
+        [ingredientHeader]="
+          'Add To ' + (showFavourites ? 'Favourites' : 'Disliked')
+        "
+        [changeColorToPrimary]="showFavourites"
+        [searchProductForm]="searchIngredientForm">
+      </ingreedio-dropdown-ingredient-input>
+    </div>
+    <div class="preferences-choose-option">
+      <button
+        class="primary-button"
+        [ngClass]="{ 'choosen-button': showFavourites }"
+        (click)="changeListing(true)">
+        Show Favourites
+      </button>
+      <button
+        class="secondary-button"
+        [ngClass]="{ 'choosen-button': !showFavourites }"
+        (click)="changeListing(false)">
+        Show Disliked
+      </button>
+    </div>
+    <div class="ingredients-list">
+      <ng-container *ngIf="showFavourites; else dislikedContainer">
+        <ingreedio-ingredient-list-component
+          [items]="favouritesIngredients"
+          [deleteElementCallback]="deletePreference.bind(this)"
+          [showBigger]="true"></ingreedio-ingredient-list-component>
+      </ng-container>
+
+      <ng-template #dislikedContainer>
+        <ingreedio-ingredient-list-component
+          [items]="dislikedIngredients"
+          [showBigger]="true"
+          [deleteElementCallback]="deletePreference.bind(this)"
+          [changeToSecondary]="true"></ingreedio-ingredient-list-component>
+      </ng-template>
+    </div>
+  </div>
+</ingreedio-main>

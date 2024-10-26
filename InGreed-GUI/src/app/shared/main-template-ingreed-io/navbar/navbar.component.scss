@@ -1,0 +1,64 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+
+.navbar {
+  height: 100px;
+  width: calc(100% - $one-space * 10);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+
+  .ingreedio-icon {
+    cursor: pointer;
+  }
+
+  .navbar-menu {
+    display: flex;
+    flex-direction: row;
+    width: 450px;
+    justify-content: space-between;
+
+    h3 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 400;
+      font-size: $medium-font;
+      color: $ingreedio-greenish-gray;
+      cursor: pointer;
+
+      &:hover {
+        color: $ingreedio-black;
+      }
+    }
+  }
+
+  .login-account {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    // width: calc($panel-width - 10 * $one-space);
+    // width: 200px;
+
+    .login-button {
+      @include ingreedio-button();
+
+      color: $ingreedio-primary;
+      background-color: transparent;
+
+      &:hover {
+        color: $ingreedio-black;
+      }
+    }
+
+    a {
+      @include ingreedio-button();
+      color: black;
+      font-size: $medium-big-font;
+
+      &:hover {
+        color: $ingreedio-primary-hover;
+      }
+    }
+  }
+}

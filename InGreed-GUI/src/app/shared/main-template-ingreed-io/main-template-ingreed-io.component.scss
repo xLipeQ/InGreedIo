@@ -1,0 +1,9 @@
+@import '../../../styles/variables.scss';
+
+.main-template {
+  // overflow: auto;
+  position: relative;
+  background-color: $ingreedio-light-yellow;
+  width: 100%;
+  min-height: 100vh;
+}

@@ -1,0 +1,88 @@
+@import "../../../styles/variables.scss";
+
+div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: $ingreedio-greenish-gray;
+    z-index: 5;
+    font-family: Arial, Helvetica, sans-serif;
+
+    .primary-color {
+      background-color: $ingreedio-primary;
+    }
+
+    .input-ingredients {
+      z-index: -1;
+    }
+
+    .picked-ingredients {
+        position: absolute;
+        top: 90px;
+    
+        div {
+          z-index: 10;
+          background-color: $ingreedio-secondary;
+          line-height: 30px;
+          border-radius: 30px;
+          padding: 0px 10px;
+          font-size: $small-font;
+    
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    
+      .dropdown-window {
+        background-color: $ingreedio-white;
+        line-height: 50px;
+        border-radius: 30px;
+        width: 100%;
+        font-size: $medium-font;
+        overflow: auto;
+        position: absolute;
+        top: 50px;
+        left: 0px;
+        z-index: 50;
+        max-height: 200px;
+        overflow-y: scroll;
+        scrollbar-width: none;
+    
+        ul {
+          list-style-type: none;
+          z-index: 60;
+    
+          li {
+            padding-left: 10px;
+            &:hover {
+              background-color: $ingreedio-secondary;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+
+      p {
+        padding-left: 10px;
+        font-weight: 500;
+      }
+}
+
+.move-up {
+  z-index: 10;
+}
+
+.input-vertical {
+    .input-search, .input-ingredients, select {
+        width: 100%;
+        background-color: $ingreedio-white;
+      }
+  
+      .picked-ingredients {
+        div {
+          border: 2px solid $ingreedio-greenish-gray;
+        }
+      }
+}

@@ -1,0 +1,12 @@
+@import "../../../styles/variables.scss";
+@import '../../../styles/mixins.scss';
+
+.user-main {
+    @include main-container-with-panel
+}
+
+button {
+    width: 100%;
+    max-width: 400px;
+    height: 80px;
+}

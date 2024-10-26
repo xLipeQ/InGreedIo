@@ -1,0 +1,9 @@
+<h1 mat-dialog-title class="title">Create report:</h1>
+<form mat-dialog-content class="dialog-content" [formGroup]="createOpinionForm">
+    <label for="reason">Reason</label>
+    <textarea id="reason" class="reason" name="reason" formControlName="reason" rows="5" cols="40" placeholder="Enter your comment..."></textarea>
+</form>
+<mat-dialog-actions class="actions">
+    <button mat-button class="button-close" (click)="close()">Cancel</button>
+    <button mat-button class="button-submit" (click)="submit()">Submit</button>
+</mat-dialog-actions>

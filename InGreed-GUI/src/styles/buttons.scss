@@ -1,0 +1,22 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+.primary-button {
+  @include ingreedio-button();
+
+  background-color: $ingreedio-primary;
+
+  &:hover {
+    background-color: $ingreedio-primary-hover;
+  }
+}
+
+.secondary-button {
+  @include ingreedio-button();
+
+  background-color: $ingreedio-secondary;
+
+  &:hover {
+    color: $ingreedio-primary-hover;
+  }
+}

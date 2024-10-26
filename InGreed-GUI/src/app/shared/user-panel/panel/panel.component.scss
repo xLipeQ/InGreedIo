@@ -1,0 +1,19 @@
+@import "../../../../styles/variables.scss";
+
+.panel {
+    position: absolute; /* Change position to absolute */
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: $panel-width;
+    z-index: 1;
+    background-color: $ingreedio-secondary;
+    
+    &-content {
+        margin-top: 150px;
+        display: flex;
+        width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

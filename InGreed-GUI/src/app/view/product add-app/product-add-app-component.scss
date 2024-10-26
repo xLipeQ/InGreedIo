@@ -1,0 +1,119 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/buttons.scss';
+
+.ingreedio-add {
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 500px;
+  height: calc(100vh - $navbar-height - 200);
+  margin: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  // height: 120vh;
+  min-height: calc(150vh);
+
+  @media (max-width: $small) {
+    width: 90%;
+  }
+  p {
+    padding-left: 10px;
+    margin-top: 2px;
+    font-weight: 500;
+    font-size: 14px;
+    color: $ingreedio-greenish-gray;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  h1 {
+    width: 100%;
+    text-align: left;
+    color: $ingreedio-primary-hover;
+    font-size: $very-big-font;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .product-adding-success {
+    color: $ingreedio-primary-hover;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  /* Hide the actual file input */
+  .file-input {
+    display: none;
+  }
+  .file-input-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: $ingreedio-primary;
+    color: #fff;
+    text-align: center;
+    border-radius: 50px;
+    border: 1px solid transparent;
+    font-size: $small-font;
+  }
+  .primary-button-smaller {
+    @extend .primary-button;
+    padding: 10px;
+    font-size: $small-font;
+  }
+  .add-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+    .add-input {
+      width: 100%;
+    }
+    .add-input-description{
+      height: fit-content;
+      min-height: auto;
+    }
+    .is-invalid {
+      border: 2px solid $ingreedio-error;
+
+      &::placeholder {
+        color: $ingreedio-error;
+      }
+    }
+
+  }
+
+  // Style the select element
+  select {
+    width: 100%;
+    padding: 10px; // Adjust padding as needed
+    border: 1px solid $ingreedio-primary; // Add border to match the design
+    border-radius: 5px; // Add border-radius for rounded corners
+    background-color: $ingreedio-secondary; // Set background color
+    font-size: 16px; // Adjust font size
+    color: $ingreedio-black; // Set text color
+    appearance: none; // Remove default styles for select arrow
+    cursor: pointer; // Set cursor to pointer for better UX
+  }
+
+  .margin-div{
+    margin-bottom: 20px;
+  }
+
+  // Style select when focused
+  select:focus {
+    outline: none; // Remove default focus outline
+    border-color: $ingreedio-primary-hover; // Add custom border color when focused
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); // Add box shadow for focus effect
+  }
+
+  // Style select arrow icon
+  select::-ms-expand {
+    display: none; // Hide arrow icon in IE
+  }
+
+  select::after {
+    content: '\25BC'; // Unicode for down arrow
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none; // Ensure arrow doesn't interfere with select functionality
+  }
+}

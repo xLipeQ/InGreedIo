@@ -1,0 +1,77 @@
+<ingreedio-main>
+  <ingreedio-notification></ingreedio-notification>
+  <div class="ingreedio-add">
+    <div class="container">
+      <div *ngIf="isProductAddingSuccess">
+        <h3 class="product-adding-success">Product added successfully!</h3>
+      </div>
+      <h1>Add Product</h1>
+      <div class="form-group">
+        <input class="primary-button" type="submit" (click)="submit()" value="Add"/>
+      </div>
+      <form
+        ng-submit="submitForm()"
+        enctype="multipart/form-data"
+        class="add-form"
+        >
+        <div class="form-group">
+          <input
+            type="text"
+            id="productName"
+            [(ngModel)]="productAdd.ProductName"
+            required
+            class="ingreedio-input add-input"
+            name="productName"
+            #name="ngModel"
+            />
+          <p for="productName">Product Name</p>
+          <br />
+        </div>
+        <div class="form-group">
+          <textarea
+            id="productDescription"
+            ng-model="product.description"
+            rows="4"
+            cols="50"
+            required
+            class="ingreedio-input add-input-description"
+            [(ngModel)]="productAdd.Description"
+            [ngModelOptions]="{standalone: true}"></textarea>
+          <p for="productDescription">Description</p>
+          <br />
+        </div>
+        <div class="form-group">
+          <label for="productImage" class="file-input-button">Add Image</label>
+          <input
+            type="file"
+            accept=".jpg"
+            id="productImage"
+            (change)="onFileSelected($event)"
+            class="file-input" />
+          <ingreedio-file-list [items]="stringFiles" />
+          <p for="productImage">Product Image</p>
+          <br />
+        </div>
+        <div class="margin-div">
+          <ingreedio-dropdown-category-input
+          [getCategoryValue]="getCategoryValue.bind(this)"
+          [setCategoryValue]="chooseCategory.bind(this)"
+          [moveUp]="true"
+          [searchProductForm]="searchProductForm"></ingreedio-dropdown-category-input>
+        </div>
+        
+        <div class="form-group">
+          <ingreedio-dropdown-ingredient-input
+            [getIngredientValue]="getIngredientValue.bind(this)"
+            [setIngredientValue]="setIngredientValue.bind(this)"
+            [getChosenIngredients]="getChosenIngredients.bind(this)"
+            [addIngredient]="addToIngredients.bind(this)"
+            [deleteIngredientParent]="
+                    deleteIngredient.bind(this)
+                "
+            [searchProductForm]="searchProductForm"></ingreedio-dropdown-ingredient-input>
+        </div>
+      </form>
+    </div>
+  </div>
+</ingreedio-main>

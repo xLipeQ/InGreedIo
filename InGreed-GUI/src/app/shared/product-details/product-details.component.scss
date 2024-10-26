@@ -1,0 +1,138 @@
+@import "../../../styles/variables.scss";
+
+.heart {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 24px;
+    fill: $ingreedio-greenish-gray;
+    cursor: pointer;
+
+    &--fill {
+        fill: $ingreedio-white;
+    }
+}
+
+.product {
+    position: relative;
+    height: 150px;
+    background-color: $ingreedio-primary;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+
+    &__accept {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        button {
+            &:hover {
+                color: $ingreedio-black;
+            }
+        }
+
+        &_accept {
+            background-color: $ingreedio-primary-hover;
+        }
+
+        &_reject {
+            background-color: $ingreedio-greenish-gray;
+        }
+    }
+
+    &__icon {
+        width: 15%;
+        height: 130px;
+        // min-width: 200px;
+        cursor: pointer;
+        padding-left: 20px;
+    
+        img {
+            margin: auto;
+            width: 70%;
+            height: 100%;
+            border-radius: 20px;
+            //background-color: black;
+    
+        }
+        // width: 130px;
+    }
+    
+    &__text {
+        width: 60%;
+        height: 90%;
+        color: $ingreedio-white;
+        font-family: Arial, Helvetica, sans-serif;
+        cursor: pointer;
+    
+        &-header {
+            margin-bottom: calc($one-space * 3);
+        }
+    
+        &-description {
+    
+        }
+    }
+    
+    &__rating {
+        border-left: 2px solid $ingreedio-white;
+        height: 100%;
+        width: 25%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    
+        .rating-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+    
+            .rating__number {
+                margin-top: 5px;
+                color: $ingreedio-white;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+    
+            .stars {
+                position: relative;
+                vertical-align: middle;
+                display: inline-block;
+                color: $ingreedio-white;
+                overflow: hidden;
+    
+                &--full{
+                position: absolute;
+                left: 0;
+                top: 0;
+                white-space: nowrap;
+                overflow: hidden;
+                color: $ingreedio-secondary;
+                }
+    
+                &--empty:before,
+                &--full:before {
+                content: "\2605\2605\2605\2605\2605";
+                font-size: 20pt;
+                }
+              }
+        }
+    
+        .opinion {
+            display: flex;
+            justify-content: center;
+    
+            p {
+                color: $ingreedio-white;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: 400;
+            }
+        }
+    }
+}

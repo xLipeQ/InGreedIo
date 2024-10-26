@@ -1,0 +1,29 @@
+<div class="navbar">
+  <div class="ingreedio-icon" (click)="showMainPage()">
+    <img src="../../../../assets/icons/ingreedio2.svg" />
+  </div>
+  <div class="navbar-menu">
+    <h3 (click)="showAboutPage()">About</h3>
+    <h3 (click)="showPricingPage()">Pricing</h3>
+    <h3 (click)="showTermsConditionsPage()">Terms and conditions</h3>
+  </div>
+  <div
+    class="login-account"
+    [ngStyle]="{
+      display: showLogin ? 'block' : 'none',
+      width: isLogged ? '140px' : '230px'
+    }">
+    <ng-container *ngIf="!isLogged; else elseBlock">
+      <button class="login-button" (click)="showLoginPage()">Log In</button>
+      <button class="primary-button" (click)="showRegisterPage()">
+        Sign Up
+      </button>
+    </ng-container>
+    <ng-template #elseBlock>
+      <button class="login-button" (click)="navigateToUser()">
+        Hello {{ username }}
+      </button>
+      <!-- <button class="primary-button" (click)="logoutUser()">Sign Out</button> -->
+    </ng-template>
+  </div>
+</div>

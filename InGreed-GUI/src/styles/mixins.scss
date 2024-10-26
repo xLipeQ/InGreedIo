@@ -1,0 +1,23 @@
+@mixin ingreedio-button {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: $medium-font;
+  width: 105px;
+  border-radius: 30px;
+  height: 45px;
+  border: 0;
+  color: $ingreedio-white;
+  outline: none;
+  cursor: pointer;
+}
+
+@mixin main-container-with-panel {
+  overflow-y: auto; /* Enable vertical scrolling if needed */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  width: calc(100% - 265px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: calc($one-space * 3);
+  padding: 0 40px 40px 40px;
+}

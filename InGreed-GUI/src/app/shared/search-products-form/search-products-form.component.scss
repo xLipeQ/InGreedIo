@@ -1,0 +1,180 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+@mixin ingredient() {
+  background-color: $ingreedio-white;
+  line-height: 50px;
+  border-radius: 30px;
+  width: 100%;
+}
+
+.search-products-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: auto;
+  gap: 30px;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+
+  .ingreedio-input-checkbox {
+    display: flex;
+    flex-direction: row;
+
+    input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: $ingreedio-primary;
+    }
+  }
+  
+  .hide-input {
+    display: none;
+  }
+
+  div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: $ingreedio-greenish-gray;
+
+    .picked-ingredients {
+      position: absolute;
+      top: 90px;
+
+      div {
+        z-index: 1;
+        background-color: $ingreedio-secondary;
+        line-height: 30px;
+        border-radius: 30px;
+        padding: 0px 10px;
+        font-size: $small-font;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .dropdown-window {
+      background-color: $ingreedio-white;
+      line-height: 50px;
+      border-radius: 30px;
+      width: 100%;
+      font-size: $medium-font;
+      overflow: auto;
+      position: absolute;
+      top: 50px;
+      left: 0px;
+      z-index: 1;
+      max-height: 200px;
+      overflow-y: scroll;
+      scrollbar-width: none;
+
+      ul {
+        list-style-type: none;
+        z-index: 10;
+
+        li {
+          padding-left: 10px;
+          &:hover {
+            background-color: $ingreedio-secondary;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    select {
+      outline: none;
+    }
+
+    .input-search {
+      width: 200px;
+
+      @media (max-width: $large) {
+        width: 150px;
+      }
+
+      @media (max-width: $medium) {
+        width: 110px;
+      }
+
+      @media (max-width: $small) {
+        width: 80%;
+      }
+    }
+
+    .input-ingredients {
+      width: 300px;
+
+      @media (max-width: $large) {
+        width: 225px;
+      }
+
+      @media (max-width: $medium) {
+        width: 175px;
+      }
+
+      @media (max-width: $small) {
+        width: 80%;
+      }
+    }
+
+    select {
+      width: 200px;
+
+      @media (max-width: $large) {
+        width: 150px;
+      }
+
+      @media (max-width: $medium) {
+        width: 110px;
+      }
+
+      @media (max-width: $small) {
+        width: 80%;
+      }
+    }
+
+    p {
+      padding-left: 10px;
+      font-weight: 500;
+    }
+  }
+
+  button {
+    z-index: 5;
+  }
+
+  @media (max-width: $medium) {
+    gap: 15px;
+  }
+
+  @media (max-width: $small) {
+    flex-direction: column;
+  }
+}
+
+.search-products-form-vertical {
+  flex-direction: column;
+  height: 90%;
+
+  div {
+    .input-search, .input-ingredients, select {
+      width: 100%;
+      background-color: $ingreedio-white;
+    }
+
+    .picked-ingredients {
+      div {
+        border: 2px solid $ingreedio-greenish-gray;
+      }
+    }
+  }
+
+  button {
+    margin-top: 150px;
+  }
+}

@@ -1,0 +1,22 @@
+<div class="producent-products">
+  <div class="producent-header__container">
+    <h2 class="producent__header">Your Products</h2>
+    <button class="primary-button" (click)="navigateToAddProduct()">
+      Add Product
+    </button>
+  </div>
+
+  <div
+    class="products-main-product"
+    appScrollBottom
+    (scrollingFinished)="loadMoreProducts()">
+    <div *ngFor="let product of products">
+      <ingreedio-product-details
+        [product]="product"
+        [role]="roleEnum.Producent" />
+    </div>
+    <div *ngIf="products.length === 0">
+      <h2 class="producent__header">You don't have any products. Add one!</h2>
+    </div>
+  </div>
+</div>

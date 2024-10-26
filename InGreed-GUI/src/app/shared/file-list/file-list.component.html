@@ -1,0 +1,6 @@
+<div class="list">
+    <div *ngFor="let item of items; let i = index" class="list-item">
+      <span>{{ item }}</span>
+      <button (click)="deleteItem(i)" class="delete-btn">x</button>
+    </div>
+</div>

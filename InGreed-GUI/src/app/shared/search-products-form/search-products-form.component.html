@@ -1,0 +1,58 @@
+<form
+  class="search-products-form"
+  [formGroup]="searchProductForm"
+  [ngClass]="{ 'search-products-form-vertical': showVertical }"
+  (ngSubmit)="onSubmit()">
+  <div
+    [ngClass]="{ 'hide-input': hideCheckbox || userRole !== roleEnum.Client }"
+    class="ingreedio-input-checkbox">
+    <input
+      type="checkbox"
+      name="showOnlyFavourite"
+      formControlName="showOnlyFavourite" />
+    <label>Show Only Favourite</label>
+  </div>
+  <!-- <ingreedio-dropdown-input
+    [keyUpCallback]="filterCategories.bind(this)"
+    [focusCallback]="onCategoryFocus.bind(this)"
+    [unfocusCallback]="onCategoryFocusLost.bind(this)"
+    [showDropdown]="showCategory"
+    [filteredElements]="filteredCategories"
+    [chooseElement]="chooseCategory.bind(this)"
+    [showVertical]="showVertical"
+    [header]="'Category'"
+    [myControlName]="'category'"
+    [id]="'CategoryInput'"
+    [searchProductForm]="searchProductForm"></ingreedio-dropdown-input> -->
+  <ingreedio-dropdown-category-input
+    [getCategoryValue]="getCategoryValue.bind(this)"
+    [setCategoryValue]="chooseCategory.bind(this)"
+    [searchProductForm]="searchProductForm"
+    [showVertical]="showVertical"
+    [moveUp]="true"></ingreedio-dropdown-category-input>
+  <div>
+    <input
+      type="text"
+      name="searchPhrase"
+      formControlName="searchPhrase"
+      class="ingreedio-input input-search"
+      [ngClass]="{
+        'ingreedio-input--error':
+          submittedError && searchProductForm.controls['searchPhrase'].invalid
+      }" />
+    <p>Search Phrase</p>
+  </div>
+  <ingreedio-dropdown-ingredient-input
+    [getIngredientValue]="getIngredientValue.bind(this)"
+    [setIngredientValue]="setIngredientValue.bind(this)"
+    [searchProductForm]="searchProductForm"
+    [showVertical]="showVertical"
+    [getChosenIngredients]="getChosenIngredients.bind(this)"
+    [addIngredient]="addToIngredients.bind(this)"
+    [deleteIngredientParent]="
+      deleteIngredient.bind(this)
+    "></ingreedio-dropdown-ingredient-input>
+  <div>
+    <button class="primary-button" type="submit">Search</button>
+  </div>
+</form>

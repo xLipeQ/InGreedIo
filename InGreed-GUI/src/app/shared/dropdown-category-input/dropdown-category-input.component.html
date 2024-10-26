@@ -1,0 +1,15 @@
+<ingreedio-dropdown-input
+  [keyUpCallback]="filterCategories.bind(this)"
+  [focusCallback]="onCategoryFocus.bind(this)"
+  [unfocusCallback]="onCategoryFocusLost.bind(this)"
+  [showDropdown]="showCategory"
+  [filteredElements]="filteredCategories"
+  [chooseElement]="chooseCategory.bind(this)"
+  [showVertical]="showVertical"
+  [header]="categoryHeader"
+  [myControlName]="'category'"
+  [id]="'CategoryId'"
+  [showPickedIngredients]="true"
+  [searchProductForm]="searchProductForm"
+  [moveUp]="moveUp"
+  [isCategoryInput]="true"></ingreedio-dropdown-input>

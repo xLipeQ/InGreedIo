@@ -1,0 +1,22 @@
+<ingreedio-panel>
+  <div class="main-user-data">
+    <div class="main-user-data-holder">
+      <h2 class="main-user-data-holder__username">{{ username }}</h2>
+      <div class="main-user-data-holder__photo"></div>
+    </div>
+    <div class="main-user-data-settings">
+      <h3 class="main-user-data-settings__header">Settings</h3>
+      <ul class="main-user-data-settings-container">
+        <li [ngClass]="{ hidden: userRole !== enumRole.Client }">
+          Email Notifications
+        </li>
+        <li>Change Email</li>
+        <li>Change Password</li>
+      </ul>
+    </div>
+
+    <button class="primary-button logout-button" (click)="logoutUser()">
+      Sign Out
+    </button>
+  </div></ingreedio-panel
+>

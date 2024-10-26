@@ -1,0 +1,17 @@
+<h1 mat-dialog-title class="title">Add an opinion:</h1>
+<form mat-dialog-content class="dialog-content" [formGroup]="createOpinionForm">
+    <label for="rating">Rating</label>
+    <select name="rating" class="rating" name="rating" formControlName="rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <label for="content">Comment</label>
+    <textarea id="content" class="content" name="content" formControlName="content" rows="5" cols="40" placeholder="Enter your comment..."></textarea>
+</form>
+<mat-dialog-actions class="actions">
+    <button mat-button class="button-close" (click)="close()">Cancel</button>
+    <button mat-button class="button-submit" (click)="submit()">Submit</button>
+</mat-dialog-actions>

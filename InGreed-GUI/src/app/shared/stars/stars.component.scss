@@ -1,0 +1,24 @@
+@import '../../../styles/variables.scss';
+
+.stars {
+    position: relative;
+    vertical-align: middle;
+    display: inline-block;
+    color: $ingreedio-white;
+    overflow: hidden;
+
+    &--full{
+    position: absolute;
+    left: 0;
+    top: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    color: $ingreedio-secondary;
+    }
+
+    &--empty:before,
+    &--full:before {
+    content: "\2605\2605\2605\2605\2605";
+    font-size: 20pt;
+    }
+  }

@@ -1,0 +1,17 @@
+<ingreedio-main>
+  <ingreedio-user-panel
+    [userRole]="userRole"
+    [username]="username"></ingreedio-user-panel>
+  <div class="user-main">
+    <ingreedio-user-client
+      *ngIf="userRole === enumRole.Client"></ingreedio-user-client>
+
+    <ingreedio-user-producer
+      *ngIf="userRole === enumRole.Producent"></ingreedio-user-producer>
+
+    <ingreedio-user-administrator
+      *ngIf="
+        userRole === enumRole.Administrator
+      "></ingreedio-user-administrator>
+  </div>
+</ingreedio-main>

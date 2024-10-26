@@ -1,0 +1,23 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
+.products {
+    overflow-x: hidden;
+    &-main {
+        @include main-container-with-panel;
+
+        &__header {
+            width: 100%;
+            h2 {
+                color: $ingreedio-greenish-gray;
+                font-family: Arial, Helvetica, sans-serif;
+                text-align: left;
+                font-weight: 600;
+            }
+        }
+
+        &-product {
+            width: 100%;
+        }
+    }
+}

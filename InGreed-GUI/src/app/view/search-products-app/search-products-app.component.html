@@ -1,0 +1,22 @@
+<ingreedio-main appScrollBottom (scrollingFinished)="loadMoreProducts()">
+  <div class="products">
+    <ingreedio-panel>
+      <ingreedio-search-products-form
+        [showVertical]="true"
+        [defaultFormValues]="formData"
+        [hideCheckbox]="!userIsLoggedIn"
+        [isSearchProductPage]="true"
+        [userRole]="userRole"></ingreedio-search-products-form>
+    </ingreedio-panel>
+    <div class="products-main" style="overflow-x: hidden">
+      <div class="products-main__header">
+        <h2>Found products</h2>
+      </div>
+      <div
+        class="products-main-product"
+        *ngFor="let product of products; let i = index">
+        <ingreedio-product-details [product]="product" [role]="userRole" />
+      </div>
+    </div>
+  </div>
+</ingreedio-main>
